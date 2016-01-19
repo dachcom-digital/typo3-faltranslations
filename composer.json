@@ -1,0 +1,16 @@
+{
+    "name": "dachcom/typo3-faltranslations",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 - FAL translations handling",
+    "require": {
+        "typo3/cms-composer-installers": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dachcom\\Faltranslations\\": "Classes/"
+        }
+    },
+    "extra": {
+        "installer-name": "faltranslations"
+    }
+}
