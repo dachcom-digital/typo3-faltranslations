@@ -32,11 +32,12 @@ class DataHandler {
             $record = BackendUtility::getRecord($table, $recordUid);
 
             if ((int)$record['sys_language_uid'] > 0) {
-
+                // Ref Parent depend of context
+                $uidForeign = ($table==='pages_language_overlay') ? (int)$record['pid'] : (int)$record['l10n_parent'];
                 $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
                     'fieldname',
                     'sys_file_reference',
-                    "tablenames='$table' AND uid_foreign=" . $record['l10n_parent'] . BackendUtility::deleteClause('sys_file_reference'),
+                    "tablenames='$table' AND uid_foreign=" . $uidForeign . BackendUtility::deleteClause('sys_file_reference'),
                     'fieldname',
                     'fieldname'
                 );
@@ -56,7 +57,7 @@ class DataHandler {
 
                     $l10nParents = BackendUtility::getRecordsByField(
                         'sys_file_reference',
-                        'uid_foreign', $record['l10n_parent'],
+                        'uid_foreign', $uidForeign,
                         " AND fieldname='$fieldname'", '', 'sorting ASC'
                     );
 
