@@ -7,19 +7,19 @@ $EM_CONF[$_EXTKEY] = array(
     'author' => 'DACHCOM.DIGITAL AG',
     'author_email' => 'digital-development@dachcom.ch',
     'author_company' => 'DACHCOM.DIGITAL AG',
-    'state' => 'beta',
+	'state' => 'beta',
 	'internal' => '',
 	'uploadfolder' => '',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '0.9.2',
+	'version' => '0.10.0',
 	'constraints' => array(
-    	'depends' => array(
+		'depends' => array(
             'typo3' => '7.6.0-7.6.99',
         ),
-    	'conflicts' => array(
-    	),
-    	'suggests' => array(
-    	),
+		'conflicts' => array(
+		),
+		'suggests' => array(
+		),
 	),
 );
