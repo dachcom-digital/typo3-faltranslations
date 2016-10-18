@@ -10,9 +10,9 @@ class DataMapFactory extends \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataM
      * This method tries to determine the type of type of relation to other tables and sets it based on
      * the $TCA column configuration
      *
-     * @param \Dachcom\Faltranslations\Persistence\Generic\Mapper\ColumnMap $columnMap           The column map
-     * @param string                                                        $columnConfiguration The column configuration from $TCA
-     * @param array                                                         $propertyMetaData    The property metadata as delivered by the reflection service
+     * @param ColumnMap $columnMap           The column map
+     * @param string    $columnConfiguration The column configuration from $TCA
+     * @param array     $propertyMetaData    The property metadata as delivered by the reflection service
      *
      * @return ColumnMap
      */
