@@ -2,15 +2,17 @@
 
 namespace Dachcom\Faltranslations\Persistence\Generic\Mapper;
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\ColumnMap;
+
 class DataMapFactory extends \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory {
 
     /**
      * This method tries to determine the type of type of relation to other tables and sets it based on
      * the $TCA column configuration
      *
-     * @param ColumnMap $columnMap           The column map
-     * @param string    $columnConfiguration The column configuration from $TCA
-     * @param array     $propertyMetaData    The property metadata as delivered by the reflection service
+     * @param \Dachcom\Faltranslations\Persistence\Generic\Mapper\ColumnMap $columnMap           The column map
+     * @param string                                                        $columnConfiguration The column configuration from $TCA
+     * @param array                                                         $propertyMetaData    The property metadata as delivered by the reflection service
      *
      * @return ColumnMap
      */
@@ -20,7 +22,7 @@ class DataMapFactory extends \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataM
                 $columnMap = $this->setManyToManyRelation($columnMap, $columnConfiguration);
             } elseif (isset($propertyMetaData['elementType'])) {
                 $columnMap = $this->setOneToManyRelation($columnMap, $columnConfiguration);
-            } elseif (isset($propertyMetaData['type']) && strpbrk($propertyMetaData['type'], '_\\') !== false) {
+            } elseif (isset($propertyMetaData['type']) && strpbrk($propertyMetaData['type'], '_\\') !== FALSE) {
                 $columnMap = $this->setOneToOneRelation($columnMap, $columnConfiguration);
             } elseif (isset($columnConfiguration['type']) && $columnConfiguration['type'] === 'select' && isset($columnConfiguration['maxitems']) && $columnConfiguration['maxitems'] > 1) {
                 $columnMap->setTypeOfRelation(ColumnMap::RELATION_HAS_MANY);
